@@ -22,7 +22,16 @@
     <servlet-mapping>
     	<servlet-name>LoginServlet</servlet-name>
     	<url-pattern>/login</url-pattern>
-	</servlet-mapping> 
+	</servlet-mapping>
+	
+	    <servlet>
+    	<servlet-name>UploadPhotoServlet</servlet-name>
+    	<servlet-class>servlet.UploadPhotoServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+    	<servlet-name>UploadPhotoServlet</servlet-name>
+    	<url-pattern>/uploadPhoto</url-pattern>
+	</servlet-mapping>  
 	
 </web-app>
 

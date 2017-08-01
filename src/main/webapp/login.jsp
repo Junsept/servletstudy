@@ -6,11 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login page</title>
 </head>
-<body>
+<body >
 	<form action="login" method="post">
-		账号: <input type="text" name="name"> <br>
-		密码: <input type="password" name="password"> <br>
+		账号: <input type="text" name="name"> <br><br>
+		密码: <input type="password" name="password"> <br><br>
 			 <input type="submit" value="登录">
+	</form>
+	<br><br>
+	<form action="uploadPhoto" method="post" enctype="multipart/form-data">
+ 		 英雄名称: <input type="text" name="heroName" /> <br><br> 
+  		上传头像 : <input type="file" name="filepath" /> <br><br> 
+  			 	<input type="submit" value="上传">
 	</form>
 </body>
 </html>
