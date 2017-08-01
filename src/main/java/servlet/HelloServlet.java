@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet{
 	
-    public void doGet(HttpServletRequest request, HttpServletResponse response){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
          
         try {
             response.getWriter().println("<h1>Hello Servlet!</h1>");
