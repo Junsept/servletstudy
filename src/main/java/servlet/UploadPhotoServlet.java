@@ -12,19 +12,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-public class UploadPhotoServlet extends HttpServlet{
+public class UploadPhotoServlet extends HttpServlet {
+	public static String filename = null;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request,HttpServletResponse response){
 		
 	}
 	@SuppressWarnings("rawtypes")
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
-		String filename = null;
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		
@@ -42,12 +47,8 @@ public class UploadPhotoServlet extends HttpServlet{
         	if(!item.isFormField()){
                 // 根据时间戳创建头像文件
                 filename = System.currentTimeMillis() + ".jpg";
-                String pathdir = "/image";
-/*                String realpathdir = request.getSession().getServletContext()
-                	     .getRealPath(pathdir); */
-                String realpathdir = "E:\\MyData\\EclipseDev\\ServletTest\\src\\main\\webapp\\res\\image";
-                System.out.println(realpathdir);
-                
+                System.out.println(this.getClass().getResource("/"));
+                String realpathdir = "E://MyData//EclipseDev//ServletTest//src//main//webapp//res//image";               
                 File f = new File(realpathdir, filename);
                 f.getParentFile().mkdirs();
                                 
@@ -59,8 +60,9 @@ public class UploadPhotoServlet extends HttpServlet{
                 byte b[] = new byte[1024 * 1024];
                 int length = 0;
                 while (-1 != (length = is.read(b))) {
-                    fos.write(b, 0, length);
+                    fos.write(b, 0, length);                    
                 }
+                fos.flush();
                 fos.close();  
                 
         	}else {
@@ -71,9 +73,10 @@ public class UploadPhotoServlet extends HttpServlet{
             }
         }
         
-        System.out.println(filename);
-        request.setAttribute("filename", filename);      
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-         
+        
+       //request.setAttribute("filename", filename);      
+       //request.getRequestDispatcher("/showPhoto").forward(request, response);
+       response.sendRedirect("/ServletTest/showPhoto?filename="+filename);
+       
 	}
 }

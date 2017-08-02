@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet{
 		String name = request.getParameter("name");
 	    String password = request.getParameter("password");
 	       
-	    String html = null;
+/*	    String html = null;
 	    if(name.equals("admin") && password.equals("123")){
 	    	html = "<div style = 'color:green'>登录成功</div>";
 	    }else{
@@ -31,13 +31,13 @@ public class LoginServlet extends HttpServlet{
 	    }
 	    response.setContentType("text/html");
 	    response.setCharacterEncoding("UTF-8");
-	    response.getWriter().println(html);	
-/*        if ("admin".equals(name) && "123".equals(password)) {
+	    response.getWriter().println(html);	*/
+        if ("admin".equals(name) && "123".equals(password)) {
             request.getRequestDispatcher("success.jsp").forward(request, response);
         }
         else{
             response.sendRedirect("fail.jsp");
-        }*/
+        }
 	}
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response){

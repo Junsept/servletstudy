@@ -3,16 +3,6 @@
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
-	
-    <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>servlet.HelloServlet</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping> 
     
     <servlet>
     	<servlet-name>LoginServlet</servlet-name>
@@ -24,13 +14,22 @@
     	<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 	
-	    <servlet>
+	<servlet>
     	<servlet-name>UploadPhotoServlet</servlet-name>
     	<servlet-class>servlet.UploadPhotoServlet</servlet-class>
     </servlet> 
     <servlet-mapping>
     	<servlet-name>UploadPhotoServlet</servlet-name>
     	<url-pattern>/uploadPhoto</url-pattern>
+	</servlet-mapping>  
+	
+	<servlet>
+    	<servlet-name>ShowPhotoServlet</servlet-name>
+    	<servlet-class>servlet.ShowPhotoServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+    	<servlet-name>ShowPhotoServlet</servlet-name>
+    	<url-pattern>/showPhoto</url-pattern>
 	</servlet-mapping>  
 	
 </web-app>
