@@ -47,16 +47,15 @@ public class UploadPhotoServlet extends HttpServlet {
         	if(!item.isFormField()){
                 // 根据时间戳创建头像文件
                 filename = System.currentTimeMillis() + ".jpg";
-                System.out.println(this.getClass().getResource("/"));
-                String realpathdir = "E://MyData//EclipseDev//ServletTest//src//main//webapp//res//image";               
-                File f = new File(realpathdir, filename);
-                f.getParentFile().mkdirs();
-                                
-                // 通过item.getInputStream()获取浏览器上传的文件的输入流
+                File f = new File(getServletContext().getRealPath("upload"));
+                if (!f.exists()) {  
+                    f.mkdir();  
+                } 
+                String imgsrc = f + "/" + filename;
                 InputStream is = item.getInputStream();
                 
                 // 复制文件
-                FileOutputStream fos = new FileOutputStream(f);
+                FileOutputStream fos = new FileOutputStream(imgsrc);
                 byte b[] = new byte[1024 * 1024];
                 int length = 0;
                 while (-1 != (length = is.read(b))) {
