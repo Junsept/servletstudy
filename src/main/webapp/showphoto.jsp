@@ -10,17 +10,8 @@
 <body>
 <%
 	String filename = request.getParameter("filename"); 
-	String realpath = getServletContext().getRealPath("upload/");
-	String srcimg = realpath + filename;
+	String srcimg = "/image/"+filename;
 %>
-<p id="srcimg"><%=srcimg%></p>
-<script type="text/javascript">
-	var obj = new Image();
-	obj.src = document.getElementById("srcimg").innerHTML;
-	obj.onload=function(){
-	    document.getElementById("mypic").innerHTML="<img src='"+this.src+"' />";
-	}
-</script>
-<div id="mypic">onloading……</div>
+<img src="<%=srcimg%>"/>
 </body>
 </html>

@@ -28,7 +28,7 @@ public class UploadPhotoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response){
 		
 	}
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
@@ -47,7 +47,9 @@ public class UploadPhotoServlet extends HttpServlet {
         	if(!item.isFormField()){
                 // 根据时间戳创建头像文件
                 filename = System.currentTimeMillis() + ".jpg";
-                File f = new File(getServletContext().getRealPath("upload"));
+                System.out.println(request.getContextPath());
+                /*File f = new File(getServletContext().getRealPath("upload"));*/
+                File f = new File("D://image");
                 if (!f.exists()) {  
                     f.mkdir();  
                 } 
