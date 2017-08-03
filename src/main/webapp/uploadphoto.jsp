@@ -12,5 +12,8 @@
   		 上传头像: <input type="file" name="filepath" /> <br><br> 
   			 	<input type="submit" value="上传">
 	</form>
+	<br><br>
+	<button type="button" onclick="window.location.href='/ServletTest/showHero'">查询所有英雄</button>
+	
 </body>
 </html>

@@ -23,6 +23,15 @@
     	<url-pattern>/showPhoto</url-pattern>
 	</servlet-mapping>  
 	
+	<servlet>
+    	<servlet-name>ShowHeroServlet</servlet-name>
+    	<servlet-class>servlet.ShowHeroServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+    	<servlet-name>ShowHeroServlet</servlet-name>
+    	<url-pattern>/showHero</url-pattern>
+	</servlet-mapping>  
+	
 </web-app>
 
 
