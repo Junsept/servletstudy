@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Success</title>
+<title>upload page</title>
 </head>
-<body>
-	<div style = "color:green">登录成功</div>
+<body >
+	<form action="uploadPhoto" method="post" enctype="multipart/form-data">
+ 		 英雄名称: <input type="text" name="heroName" /> <br><br> 
+  		 上传头像: <input type="file" name="filepath" /> <br><br> 
+  			 	<input type="submit" value="上传">
+	</form>
 </body>
 </html>

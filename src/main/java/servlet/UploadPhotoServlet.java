@@ -28,7 +28,8 @@ public class UploadPhotoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request,HttpServletResponse response){
 		
 	}
-	@SuppressWarnings({ "rawtypes", "deprecation" })
+
+	@SuppressWarnings("rawtypes")
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
@@ -45,6 +46,7 @@ public class UploadPhotoServlet extends HttpServlet {
         while(iter.hasNext()){
         	FileItem item = (FileItem) iter.next();
         	if(!item.isFormField()){
+        		
                 // 根据时间戳创建头像文件
                 filename = System.currentTimeMillis() + ".jpg";
                 System.out.println(request.getContextPath());
@@ -54,9 +56,9 @@ public class UploadPhotoServlet extends HttpServlet {
                     f.mkdir();  
                 } 
                 String imgsrc = f + "/" + filename;
-                InputStream is = item.getInputStream();
                 
                 // 复制文件
+                InputStream is = item.getInputStream();               
                 FileOutputStream fos = new FileOutputStream(imgsrc);
                 byte b[] = new byte[1024 * 1024];
                 int length = 0;
@@ -73,11 +75,10 @@ public class UploadPhotoServlet extends HttpServlet {
                 System.out.println(value);
             }
         }
-        
-        
-       //request.setAttribute("filename", filename);      
-       //request.getRequestDispatcher("/showPhoto").forward(request, response);
-       response.sendRedirect("/ServletTest/showPhoto?filename="+filename);
+         
+        //request.setAttribute("filename", filename);      
+        //request.getRequestDispatcher("/showPhoto").forward(request, response);
+        response.sendRedirect("/ServletTest/showPhoto?filename="+filename);
        
 	}
 }
