@@ -32,12 +32,6 @@ public class UploadPhotoServlet extends HttpServlet {
 
 	@SuppressWarnings("rawtypes")
 	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
-        String userName = (String) request.getSession().getAttribute("name");
-        if (null == userName) {
-            response.sendRedirect("/ServletTest/login.jsp");
-            return;
-        }
-		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		
@@ -76,7 +70,6 @@ public class UploadPhotoServlet extends HttpServlet {
                 
         	}else {
                 String Fieldname = item.getFieldName();
-                System.out.println(Fieldname);
                 String value = item.getString();
                 value = new String(value.getBytes("ISO-8859-1"), "UTF-8");
                 if(Fieldname.equals("heroName")){

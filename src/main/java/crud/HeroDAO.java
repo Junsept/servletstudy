@@ -45,7 +45,7 @@ public class HeroDAO {
     	while(rs.next()){
         	Map<String, Object> hero = new HashMap<String, Object>();
     		hero.put("name", rs.getString(1));
-    		hero.put("hp", rs.getFloat(2));
+    		hero.put("hp", rs.getInt(2));
     		hero.put("damage", rs.getInt(3));
     		hero.put("imgsrc", rs.getString(4));
     		resultList.add(hero);
