@@ -19,7 +19,11 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import crud.HeroDAO;
+
 public class UploadPhotoServlet extends HttpServlet {
+	String name, hp, damage, img;
+	HeroDAO dao = new HeroDAO();
 	public static String filename = null;
 	/**
 	 * 
@@ -40,8 +44,7 @@ public class UploadPhotoServlet extends HttpServlet {
             items = upload.parseRequest(request);
         } catch (FileUploadException e) {
             e.printStackTrace();
-        }
-        
+        }       
         Iterator iter = items.iterator();
         while(iter.hasNext()){
         	FileItem item = (FileItem) iter.next();
@@ -69,13 +72,27 @@ public class UploadPhotoServlet extends HttpServlet {
                 fos.close();  
                 
         	}else {
-                System.out.println(item.getFieldName());
+                String Fieldname = item.getFieldName();
+                System.out.println(Fieldname);
                 String value = item.getString();
                 value = new String(value.getBytes("ISO-8859-1"), "UTF-8");
-                System.out.println(value);
+                if(Fieldname.equals("heroName")){
+                	name = value;
+                }else if(Fieldname.equals("heroHp")){
+                	hp = value;
+                }else if(Fieldname.equals("heroDamage")){
+                	damage = value;
+                }
             }
+        	
         }
-         
+        img = filename;
+        try {
+			dao.addRecord(name, hp, damage, img);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         //request.setAttribute("filename", filename);      
         //request.getRequestDispatcher("/showPhoto").forward(request, response);
         response.sendRedirect("/ServletTest/showPhoto?filename="+filename);
