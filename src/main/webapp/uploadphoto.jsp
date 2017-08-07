@@ -126,9 +126,9 @@
 	<!-- 按钮、超大屏幕、鼠标悬停 -->
 	<div class="jumbotron">
 		<form action="uploadPhoto" method="post" enctype="multipart/form-data">
-	 		 英雄名称: <input type="text" class="form-control" name="heroName" /> <br><br>
-	 		 英雄血量: <input type="text" class="form-control" name="heroHp" /><br> <br>
-	 		 英雄伤害: <input type="text" class="form-control" name="heroDamage" /><br><br> 
+	 		 英雄名称: <input type="text" style="width:250px;margin:0 auto;" class="form-control" name="heroName" /> <br><br>
+	 		 英雄血量: <input type="text" style="width:250px;margin:0 auto;" class="form-control" name="heroHp" /><br> <br>
+	 		 英雄伤害: <input type="text" style="width:250px;margin:0 auto;" class="form-control" name="heroDamage" /><br><br> 
 	    	 英雄头像: <br><br><input type="file" name="filepath" style="margin-left:600px"/><br><br>
 	  		<input class="btn btn-primary" type="submit" value="上传">
 		</form>
@@ -161,4 +161,3 @@
 	<br><br> 
 </body>
 </html>
-<jsp:include page="footer.jsp" />

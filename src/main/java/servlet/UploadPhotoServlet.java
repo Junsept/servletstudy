@@ -29,12 +29,15 @@ public class UploadPhotoServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public void doGet(HttpServletRequest request,HttpServletResponse response){
-		
-	}
 
 	@SuppressWarnings("rawtypes")
-	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
+	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
+        String userName = (String) request.getSession().getAttribute("name");
+        if (null == userName) {
+            response.sendRedirect("/ServletTest/login.jsp");
+            return;
+        }
+		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		
