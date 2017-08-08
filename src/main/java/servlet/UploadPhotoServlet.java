@@ -89,6 +89,7 @@ public class UploadPhotoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
         //request.setAttribute("filename", filename);      
         //request.getRequestDispatcher("/showPhoto").forward(request, response);
         response.sendRedirect("/ServletTest/showPhoto?filename="+filename);

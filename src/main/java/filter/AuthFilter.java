@@ -25,6 +25,8 @@ public class AuthFilter implements Filter{
 	    HttpServletRequest req = (HttpServletRequest) request;
 	    HttpServletResponse res = (HttpServletResponse) response;
 	    
+	    System.out.println(req.getSession().getServletContext().getAttribute("onLineNum"));	
+		
 		String ip = req.getRemoteAddr();
         String uri = req.getRequestURI();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
