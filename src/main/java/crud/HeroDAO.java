@@ -18,7 +18,7 @@ public class HeroDAO {
     }
     /**连接数据库**/
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/hero?useUnicode=true&characterEncoding=utf-8&useSSL=false", "root", "root");
+        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/lol?useUnicode=true&characterEncoding=utf-8&useSSL=false", "root", "root");
     }
     
     /**获取数据库条数**/
